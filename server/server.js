@@ -18,6 +18,6 @@ app.get("*", function (req, res) {
     res.sendFile(path.join(__dirname, "..", "client", "index.html"));
 });
 
-app.listen(process.env.PORT || 3001, function () {
-    console.log("What's it going to be then, eh?");
-});
+app.listen(process.env.PORT || 3001, () =>
+    console.log("What's it going to be then, eh?")
+);
