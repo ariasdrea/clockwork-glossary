@@ -2,16 +2,22 @@ const express = require("express");
 const app = express();
 const compression = require("compression");
 const path = require("path");
-const { getSlovos } = require("./db");
+const { getSlovos, getMeaning } = require("./db");
 
 app.use(compression());
 
 app.use(express.static(path.join(__dirname, "..", "client", "public")));
 
-app.get("/get-meaning/:val", async (req, res) => {
+app.get("/get-inital-data/:val", async (req, res) => {
     const { val } = req.params;
     const { rows } = await getSlovos(val);
     res.json(rows);
+});
+
+app.get("/get-meaning/:val", async (req, res) => {
+    const { val } = req.params;
+    const { meaning } = await getMeaning(val);
+    res.json(meaning);
 });
 
 app.get("*", function (req, res) {

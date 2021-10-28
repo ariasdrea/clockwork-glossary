@@ -13,8 +13,19 @@ exports.addSlovos = (slovo, meaning) =>
 exports.getSlovos = (val) =>
     db.query(
         `
-    SELECT slovo, meaning 
+    SELECT slovo 
     FROM glossary
     WHERE slovo ILIKE $1`,
         [`${val}%`]
     );
+
+exports.getMeaning = (val) =>
+    db
+        .query(
+            `
+    SELECT meaning 
+    FROM glossary
+    WHERE slovo=$1`,
+            [val]
+        )
+        .then(({ rows }) => rows[0]);

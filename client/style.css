@@ -1,3 +1,7 @@
 body {
     background-color: ghostwhite;
 }
+
+.highlight {
+    background-color: aqua;
+}
