@@ -1,21 +1,30 @@
+body {
+    background-color: wheat;
+    font-family: monospace;
+    font-size: larger;
+}
+
+main {
+    height: 100vh;
+}
+
 .highlight {
-    background-color: rgba(255, 127, 0, 0.5);
+    background-color: rgb(208, 112, 83, 0.4);
 }
 
 img {
     height: 150px;
     width: 150px;
     object-fit: cover;
-    margin-bottom: 3%;
 }
 
 #container {
     display: flex;
     flex-direction: column;
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
     justify-content: center;
     align-items: center;
+    overflow-y: hidden;
 }
 
 #slovos,
@@ -25,4 +34,29 @@ h3 {
 
 #slovos {
     width: 10%;
+}
+
+@media screen and (min-width: 375px) and (max-width: 667px) {
+    img {
+        height: 175px;
+        width: 175px;
+        margin-bottom: 5%;
+    }
+
+    p {
+        width: 100%;
+    }
+
+    #results {
+        position: relative;
+    }
+
+    #slovos,
+    h3 {
+        width: 100%;
+    }
+
+    h3 {
+        text-align: center;
+    }
 }

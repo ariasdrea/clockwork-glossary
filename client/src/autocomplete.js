@@ -85,11 +85,15 @@ export default function Autocomplete() {
     return (
         <div>
             <input type="text" onChange={(e) => grabData(e)} />
-            <div id="slovos">
-                {slovos &&
-                    slovos.map((each, idx) => <p key={idx}>{each.slovo}</p>)}
+            <div id="results">
+                <div id="slovos">
+                    {slovos &&
+                        slovos.map((each, idx) => (
+                            <p key={idx}>{each.slovo}</p>
+                        ))}
+                </div>
+                <h3>{meaning && meaning}</h3>
             </div>
-            <h3>{meaning && meaning}</h3>
         </div>
     );
 }
