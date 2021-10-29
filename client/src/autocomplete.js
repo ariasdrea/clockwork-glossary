@@ -89,7 +89,7 @@ export default function Autocomplete() {
                 {slovos &&
                     slovos.map((each, idx) => <p key={idx}>{each.slovo}</p>)}
             </div>
-            <p>{meaning && meaning}</p>
+            <h3>{meaning && meaning}</h3>
         </div>
     );
 }

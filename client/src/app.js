@@ -2,8 +2,8 @@ import Autocomplete from "./autocomplete";
 
 export default function App() {
     return (
-        <div>
-            <h1>🕰</h1>
+        <div id="container">
+            <img src="clock.png" alt="clock" />
             <Autocomplete />
         </div>
     );
