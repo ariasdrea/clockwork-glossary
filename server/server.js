@@ -3,8 +3,11 @@ const app = express();
 const compression = require("compression");
 const path = require("path");
 const { getSlovos, getMeaning } = require("./db");
+const { addDataInDb } = require("./addInitialData");
 
 app.use(compression());
+
+addDataInDb();
 
 app.use(express.static(path.join(__dirname, "..", "client", "public")));
 
