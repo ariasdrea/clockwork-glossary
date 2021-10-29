@@ -1,5 +1,4 @@
 const puppeteer = require("puppeteer");
-const util = require("util");
 const fs = require("fs");
 
 async function getSlovs() {
@@ -41,8 +40,3 @@ async function getSlovs() {
 }
 
 getSlovs();
-
-// console.log(
-//     "RESULT:",
-//     util.inspect(result, { maxArrayLength: 100000 })
-// );
