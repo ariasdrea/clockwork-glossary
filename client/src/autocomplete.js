@@ -45,9 +45,7 @@ export default function Autocomplete() {
         }
 
         if (key === "Enter") {
-            document.querySelector("input").value = highlightedElem.innerHTML;
-            setSlovos([]);
-            grabMeaning(highlightedElem.innerHTML);
+            selectSlovo();
         }
     };
 
@@ -82,6 +80,21 @@ export default function Autocomplete() {
             });
     };
 
+    const handleMouseOver = ({ target }) => {
+        target.classList.add("highlight");
+        target.nextSibling && target.nextSibling.classList.remove("highlight");
+        target.previousSibling &&
+            target.previousSibling.classList.remove("highlight");
+    };
+
+    const selectSlovo = () => {
+        const highlightedElem = document.querySelector(".highlight");
+
+        document.querySelector("input").value = highlightedElem.innerHTML;
+        setSlovos([]);
+        grabMeaning(highlightedElem.innerHTML);
+    };
+
     return (
         <div>
             <input type="text" onChange={(e) => grabData(e)} />
@@ -89,7 +102,13 @@ export default function Autocomplete() {
                 <div id="slovos">
                     {slovos &&
                         slovos.map((each, idx) => (
-                            <p key={idx}>{each.slovo}</p>
+                            <p
+                                onMouseOver={(e) => handleMouseOver(e)}
+                                onClick={() => selectSlovo()}
+                                key={idx}
+                            >
+                                {each.slovo}
+                            </p>
                         ))}
                 </div>
                 <h3>{meaning && meaning}</h3>
