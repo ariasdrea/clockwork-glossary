@@ -1,5 +1,8 @@
 const spicedPg = require("spiced-pg");
-const db = spicedPg(`postgres:postgres:postgres@localhost:5432/clockwork`);
+const db = spicedPg(
+    process.env.DATABASE_URL ||
+        `postgres:postgres:postgres@localhost:5432/clockwork`
+);
 
 exports.addSlovos = (slovo, meaning) =>
     db.query(
